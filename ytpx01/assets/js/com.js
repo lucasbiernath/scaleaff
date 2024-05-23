@@ -2,9 +2,10 @@
     function loadUrlAffiliateConfig() {
         
         //Sobrescreve as urls
-        bottle1Url = urlBaseBottle + encodeURIComponent(bottle1Url);
-        bottle6Url = urlBaseBottle + encodeURIComponent(bottle6Url);
-        bottle3Url = urlBaseBottle + encodeURIComponent(bottle3Url);
+        
+        bottle1Url = urlBaseBottle + bottle1Url;
+        bottle6Url = urlBaseBottle + bottle6Url;
+        bottle3Url = urlBaseBottle + bottle3Url;
 
         //Create URL Bottles Script
         //Montagem do iframe que carrega o link de afiliado
