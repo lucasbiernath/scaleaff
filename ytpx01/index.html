@@ -21,14 +21,13 @@
   <link rel="stylesheet" href="./assets/css/online.css">
 
   <!-- Título da Página -->
-  <title>Health Tips</title>
+  <title>Daily Manifestion</title>
 
 <script>
     window.clickmagick_cmc = {
         uid: '197314',
         hid: '955505240',
-        cmc_project: 'PINEAL 7D',
-        cmc_goal: 'a',
+        cmc_project: 'PXT DIGISTORE',
         vid_info: 'on',
     }
 </script>
@@ -82,177 +81,6 @@
 
           <!-- VSL -->
           <script type="text/javascript" id="scr_66453426e54c44000ce1008e"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/489603b2-3430-4119-89d3-98e8f6ff1c3c/ab-test/66453426e54c44000ce1008e/player.js", s.async=!0, document.head.appendChild(s); </script> <style> .elementor-element:has(#smartplayer) { width: 100%; } </style>
-
-            <script>
-              function moveCTA(container) {
-               const cta = container.querySelector(".smartplay + .smartplayer-call-action");
-            
-               if (!cta) return;
-            
-               container.parentNode.insertBefore(cta, container.nextSibling);
-              }
-            
-              function insertBeforePlayer(instance, prefix) {
-               if(!instance) return;
-            
-               const player = instance.mobileContainer || instance.container;
-            
-               const container = document.createElement("div");
-            
-               container.id = `${prefix}-${instance.options.id}`
-               container.classList.add(prefix);
-            
-               player.parentNode.insertBefore(container, player);
-            
-               container.appendChild(player);
-            
-               return container;
-              }
-            
-              function mountContainers() {
-               const instances = window.smartplayer.instances;
-            
-               instances.forEach(instance => {
-                const container = insertBeforePlayer(instance, `player-fake-fs`)
-            
-                if(!container) return;
-            
-                moveCTA(container)
-            
-                let firstClick = instance.resume?.inResume === undefined;
-            
-                container.addEventListener("click", () => {
-                 console.log(instance.resume)
-                 if (!firstClick && container.dataset.fullscreen === "true") instance.pause();
-            
-                 firstClick = false;
-                });
-               });
-            
-               instances.forEach(instance => insertBeforePlayer(instance, `player-auto-height`));
-              }
-            
-              function mountStyles() {
-               const styles = document.createElement("style");
-            
-               styles.innerHTML = `
-                .player-fake-fs[data-fullscreen='true'] {
-                 display: flex !important;
-                 align-items: center !important;
-                 background-color: #000 !important;
-                 height: 100vh !important;
-                 width: 100vw !important;
-                 cursor: pointer;
-                }
-            
-                .player-fake-fs[data-fullscreen='true'] .player-auto-height .smartplayer-mobile-container {
-                 max-width: 100% !important;
-                }
-            
-                .player-fake-fs[data-fullscreen='false'] .player-auto-height {
-                 width: 100% !important;
-                }
-            
-                .player-fake-fs[data-fullscreen='false'] {
-                 margin-left: 0 !important;
-                }
-            
-                .player-auto-height {
-                 margin: 0 auto;
-                 width: 100%;
-                }
-               `;
-            
-               document.head.appendChild(styles);
-              }
-            
-              function adjustXPositionFs() {
-               const currentFs = document.querySelectorAll(".player-fake-fs[data-fullscreen='true']");
-            
-               currentFs.forEach(container => {
-                container.style.marginLeft = "0";
-            
-                const position = container.getBoundingClientRect()
-            
-                if(position.left <= 0) return;
-            
-                container.style.marginLeft = `-${position.left}px`;
-               });
-              }
-            
-              function changeWidthByHeight() {
-               const containers = document.querySelectorAll(".player-auto-height");
-            
-               containers.forEach(container => {
-                const video = container.querySelector("video");
-            
-                if (!video) return;
-            
-                const aspectRatio = video.clientWidth / video.clientHeight;
-            
-                const windowHeight = window.innerHeight;
-                const newWidth = windowHeight * aspectRatio;
-            
-                const width = (newWidth / window.innerWidth) * 100;
-            
-                container.style.width = `${width >= 100 ? 100 : width}%`;
-               });
-              }
-            
-              function scrollToFS(container) {
-               const position = container.getBoundingClientRect();
-            
-               window.scrollTo({
-                top: position.top + window.scrollY,
-                left: position.left + window.scrollX,
-               });
-              }
-            
-              function toggleFs(id, inFullscreen = false) {
-               const container = document.getElementById(`player-fake-fs-${id}`);
-            
-               if (!container) return;
-            
-               container.dataset.fullscreen = inFullscreen.toString()
-            
-               if (inFullscreen) {
-                window.addEventListener("resize", changeWidthByHeight);
-            
-                changeWidthByHeight();
-                adjustXPositionFs();
-            
-                return scrollToFS(container);
-               }
-            
-               window.removeEventListener("resize", changeWidthByHeight);
-              }
-            
-              function mountFakeFsEvents() {
-               const instances = window.smartplayer.instances;
-            
-               window.addEventListener("resize", adjustXPositionFs);
-            
-               instances.forEach(instance => {
-                instance.on("play", () => toggleFs(instance.options.id, true));
-            
-                instance.on("pause", () => toggleFs(instance.options.id, false));
-               });
-              }
-            
-              function customEvents() {
-               mountContainers();
-               mountStyles();
-               mountFakeFsEvents()
-              }
-            
-              function checkPlayerLoaded() {
-               if (window.smartplayer && window.smartplayer.instances) return customEvents()
-            
-               return setTimeout(checkPlayerLoaded, 100)
-              }
-            
-              window.addEventListener("load", () => checkPlayerLoaded())
-            </script>
 
               <div class="text-white shadow-md py-2 onlinenow">
                 <p style="font-size: 1.125rem; line-height: 1.75rem; font-weight: 600;">1398 people are watching right now</p>
@@ -478,7 +306,7 @@
   <script type="text/javascript">
    
         //Nome do parâmetro de tracking => clickbank = tid or buygoods = subid
-        var paramTrackingName = 'tid';
+        var paramTrackingName = 'cid';
 
         //Não mexer
         var cssHideClass = '.esconder';
@@ -490,16 +318,17 @@
         var countDown = 1200;
 
         //Link de afiliado do produto
-        var affiliateUrl = 'https://hop.clickbank.net/?affiliate=lucasbiern&vendor=pinealxt&tid=[cmc_vid]&pid=116';
+        var affiliateUrl = 'https://pxt.pinealxt.com/ds/presentation/?cid=#aff=lucasbiernath&cam=/';
 
         //Url base
-        var urlBaseBottle = 'https://pinealxt.pay.clickbank.net/';
+        var urlBaseBottle = 'https://www.digistore24.com/product';
         
          //Link dos potes
-        var bottle1Url = '?cbitems=PINEXT-60-1-fe-69&cbfid=55781&cbskin=43754&cbtimer=1904&cbexit=3559&vtid=home&__user_id=fff2116ce2db290e47bdc459eba5f332&__page_id=59&tid=[cmc_vid]&__page_version=&__hostname=pinealxt.com';
-        var bottle6Url = '?cbitems=PINEXT-60-6-fe-294&cbfid=55779&cbskin=43756&cbtimer=1904&cbexit=3559&vtid=home&__user_id=fff2116ce2db290e47bdc459eba5f332&__page_id=59&tid=[cmc_vid]&__page_version=&__hostname=pinealxt.com';
-        var bottle3Url = '?cbitems=PINEXT-60-3-fe-177&cbfid=55780&cbskin=43755&cbtimer=1904&cbexit=3559&vtid=home&__user_id=fff2116ce2db290e47bdc459eba5f332&__page_id=59&tid=[cmc_vid]&__page_version=&__hostname=pinealxt.com';
+        var bottle1Url = '/520188?aff=lucasbiernath&cid=[cmc_vid]&cam=/';
+        var bottle6Url = '/520213?aff=lucasbiernath&cid=[cmc_vid]&cam=/';
+        var bottle3Url = '/520212?aff=lucasbiernath&cid=[cmc_vid]&cam=/';
 
+    
         
         document.addEventListener("DOMContentLoaded", function () {
 
@@ -516,6 +345,27 @@
    
 </script>
 
+        <script type="text/javascript">
+  var slug = “brpx01”;
+  var slugVslUrl = "/" + slug + "?utm_campaign=back_redirect";
+  var newUrl = location.pathname + location.search;
+  (function (window, location) {
+    history.replaceState(null, document.title, newUrl + "#!/backbutton");
+    history.pushState(null, document.title, newUrl);
+    window.addEventListener(
+      "popstate",
+      function () {
+        if (location.hash === "#!/backbutton") {
+          history.replaceState(null, document.title, newUrl);
+          setTimeout(function () {
+            location.replace(slugVslUrl);
+          }, 0);
+        }
+      },
+      false
+    );
+  })(window, location);
+</script>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
